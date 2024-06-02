@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/output/schema",
+  "type": "object",
+  "properties": {
+    "keebName": {
+      "type": "string"
+    },
+    "keebDesigner": {
+      "type": "string"
+    },
+    "workshopIDs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "attribution": {
+      "type": "object",
+      "properties": {
+        "keebName": {
+          "type": "string"
+        },
+        "authorName": {
+          "type": "string"
+        },
+        "workshopID": {
+          "type": "string"
+        },
+        "steamIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "keys": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/key"
+      }
+    },
+    "required": ["keebName", "keebDesigner", "keys"]
+  },
+  "$defs": {
+    "key": {
+      "$ref": "key.schema.json#/$defs/key"
+    }
+  }
+}

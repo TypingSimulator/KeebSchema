@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "key.schema.json",
+  "$defs": {
+    "key": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "scancode": {
+          "type": "string"
+        },
+        "profile": {
+          "type": "string",
+          "enum": [
+            "UGLY_1U",
+            "CHERRY_R1_1U",
+            "CHERRY_R1_2U",
+            "CHERRY_R1_2UH",
+            "CHERRY_R2_1U",
+            "CHERRY_R2_1p5U",
+            "CHERRY_R3_1U",
+            "CHERRY_R3_1p75U",
+            "CHERRY_R3_2p25U",
+            "CHERRY_R4_1U",
+            "CHERRY_R4_1p75U",
+            "CHERRY_R4_2p25U",
+            "CHERRY_R4_2p75U",
+            "CHERRY_R5_1U",
+            "CHERRY_R5_1p25U",
+            "CHERRY_R5_6p25U",
+            "DSA_R1_1U",
+            "DSA_R1_1p25U",
+            "DSA_R1_1p5U",
+            "DSA_R1_1p75U",
+            "DSA_R1_2p25U",
+            "DSA_R1_2p75U",
+            "DSA_R1_6p25U",
+            "OEM_R1_1U",
+            "OEM_R1_2U",
+            "OEM_R2_1p5U",
+            "OEM_R2_1U",
+            "OEM_R3_1p75U",
+            "OEM_R3_1U",
+            "OEM_R3_2p25U",
+            "OEM_R4_2p25U",
+            "OEM_R4_1U",
+            "OEM_R4_2p75U",
+            "OEM_R5_1p25U",
+            "OEM_R5_6p25U"
+          ]
+        },
+        "keyColor": {
+          "type": "string"
+        },
+        "keyMaterial": {
+          "type": "string",
+          "enum": [
+            "ABS"
+          ]
+        },
+        "legendColor": {
+          "type": "string"
+        },
+        "legends": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/legend"
+          }
+        },
+        "keySwitch": {
+          "type": "string",
+          "enum": [
+            "none",
+            "MX_Brown"
+          ]
+        },
+        "position": {
+          "$ref": "#/$defs/transform"
+        },
+        "rotation": {
+          "$ref": "#/$defs/transform"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "travelDistance": {
+          "type": "number"
+        },
+        "overrides": {
+          "type": "object",
+          "properties": {
+            "profile": {
+              "type": "string"
+            },
+            "keyColor": {
+              "type": "string"
+            },
+            "keyMaterial": {
+              "type": "string"
+            },
+            "legendColor": {
+              "type": "string"
+            },
+            "legends": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "legendSet": {
+                      "type": "string"
+                    },
+                    "glyph": {
+                      "type": "string"
+                    },
+                    "legendPosition": {
+                      "$ref": "#/$defs/legendPositionOptions"
+                    }
+                  }
+                }
+              ]
+            },
+            "hidden": {
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "required": [
+        "id",
+        "profile",
+        "keyMaterial",
+        "keyColor",
+        "legendColor",
+        "legends",
+        "position",
+        "rotation"
+      ]
+    },
+    "legend" : {
+      "type": "object",
+      "properties": {
+        "legendPosition": {
+          "$ref": "#/$defs/legendPositionOptions"
+        },
+        "legendSet": {
+          "type": "string",
+          "enum": [
+            "NotoSans",
+            "NotoSerif",
+            "NotoAlchemy"
+          ]
+        },
+        "glyph": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "legendSet": {
+                "const": "NotoSans"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "glyph" : {
+                "$ref": "legendSetGlyphs.schema.json#/$defs/notoSans"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "legendSet": {
+                "const": "NotoSerif"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "glyph" : {
+                "$ref": "legendSetGlyphs.schema.json#/$defs/notoSerif"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "legendSet": {
+                "const": "NotoAlchemy"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "glyph" : {
+                "$ref": "legendSetGlyphs.schema.json#/$defs/notoAlchemy"
+              }
+            }
+          }
+        }
+      ],
+      "required": [
+        "legendPosition",
+        "legendSet",
+        "glyph"
+      ]
+    },
+    "legendPositionOptions": {
+      "type": "string",
+      "enum": [
+        "CenterCenter",
+        "UpperLeft",
+        "UpperCenter",
+        "UpperRight",
+        "LowerLeft",
+        "LowerCenter",
+        "LowerRight",
+        "Front",
+        "Full",
+        "FullHeight"
+      ]
+    },
+    "transform": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "z": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "z"
+      ]
+    }
+  }
+}

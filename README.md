@@ -1,1 +1,1 @@
-# KeebSchema
+These are the schemas for the keeb files within Typing Simulator.
