@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/output/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "keebName": {
@@ -39,9 +39,9 @@
       "items": {
         "$ref": "#/$defs/key"
       }
-    },
-    "required": ["keebName", "keebDesigner", "keys"]
+    }
   },
+  "required": ["keebName", "keebDesigner", "keys"],
   "$defs": {
     "key": {
       "$ref": "key.schema.json#/$defs/key"
