@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "$defs": {
+    "UGLY": {
+      "type": "string",
+      "enum": ["UGLY_1U"]
+    },
+    "CHERRY": {
+      "type": "string",
+      "enum": [
+        "CHERRY_R1_1U",
+        "CHERRY_R1_2U",
+        "CHERRY_R1_2UH",
+        "CHERRY_R2_1U",
+        "CHERRY_R2_1p5U",
+        "CHERRY_R3_1U",
+        "CHERRY_R3_1p75U",
+        "CHERRY_R3_2p25U",
+        "CHERRY_R4_1U",
+        "CHERRY_R4_1p75U",
+        "CHERRY_R4_2p25U",
+        "CHERRY_R4_2p75U",
+        "CHERRY_R5_1U",
+        "CHERRY_R5_1p25U",
+        "CHERRY_R5_6p25U"
+      ]
+    },
+    "DSA": {
+      "type": "string",
+      "enum": [
+        "DSA_R1_1U",
+        "DSA_R1_1p25U",
+        "DSA_R1_1p5U",
+        "DSA_R1_1p75U",
+        "DSA_R1_2p25U",
+        "DSA_R1_2p75U",
+        "DSA_R1_6p25U"
+      ]
+    },
+    "OEM": {
+      "type": "string",
+      "enum": [
+        "OEM_R1_1U",
+        "OEM_R1_2U",
+        "OEM_R2_1p5U",
+        "OEM_R2_1U",
+        "OEM_R3_1p75U",
+        "OEM_R3_1U",
+        "OEM_R3_2p25U",
+        "OEM_R4_2p25U",
+        "OEM_R4_1U",
+        "OEM_R4_2p75U",
+        "OEM_R5_1p25U",
+        "OEM_R5_6p25U"
+      ]
+    },
+    "CHICLET": {
+      "type": "string",
+      "enum": [
+        "CHICLET_R1_1p25U",
+        "CHICLET_R1_1p5U",
+        "CHICLET_R1_1p75U",
+        "CHICLET_R1_1U",
+        "CHICLET_R1_1U_curved_bottom_0p5H",
+        "CHICLET_R1_1U_curved_top_0p5H",
+        "CHICLET_R1_2p25U",
+        "CHICLET_R1_2p75U",
+        "CHICLET_R1_2U",
+        "CHICLET_R1_6p25U"
+      ]
+    },
+    "LAPTOP": {
+      "type": "string",
+      "enum": [
+        "LAPTOP_NIPPLE",
+        "LAPTOP_R1_1p25U_0p6H",
+        "LAPTOP_R1_1p25U",
+        "LAPTOP_R1_1p5U",
+        "LAPTOP_R1_1p75U",
+        "LAPTOP_R1_1U_0p6H",
+        "LAPTOP_R1_1U",
+        "LAPTOP_R1_2p25U",
+        "LAPTOP_R1_2p75U",
+        "LAPTOP_R1_2U",
+        "LAPTOP_R1_5p25U",
+        "LAPTOP_R1_6p25U",
+        "LAPTOP_R1_6U",
+        "LAPTOP_R1_Bottom_Chamfer_0p75U_0p6H",
+        "LAPTOP_R1_Bottom_Left_Notch_1U",
+        "LAPTOP_R1_Bottom_Right_Notch_1U",
+        "LAPTOP_R1_Curved_1p25U",
+        "LAPTOP_R1_Curved_1p5U",
+        "LAPTOP_R1_Curved_1p75U",
+        "LAPTOP_R1_Curved_1U",
+        "LAPTOP_R1_Curved_2p25U",
+        "LAPTOP_R1_Curved_2p5U",
+        "LAPTOP_R1_Curved_2p75U",
+        "LAPTOP_R1_Curved_2U",
+        "LAPTOP_R1_Left_Bevel_0p75U_0p6H",
+        "LAPTOP_R1_Left_Bevel_1p25U_0p6H",
+        "LAPTOP_R1_Left_Bevel_1U_0p6H",
+        "LAPTOP_R1_No_Bevel_0p75U_0p6H",
+        "LAPTOP_R1_No_Bevel_1U_0p6H",
+        "LAPTOP_R1_Right_Bevel_0p75U_0p6H",
+        "LAPTOP_R1_Right_Bevel_1p25U_0p6H",
+        "LAPTOP_R1_Right_Bevel_1U_0p6H",
+        "LAPTOP_R1_Top_Bevel_0p75U_0p75H",
+        "LAPTOP_R1_Top_Bevel_1U_0p75H",
+        "LAPTOP_R1_Top_Notch_1U"
+      ]
+    }
+  }
+}

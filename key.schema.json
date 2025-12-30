@@ -120,43 +120,25 @@
           "type": "string"
         },
         "profile": {
-          "type": "string",
-          "enum": [
-            "UGLY_1U",
-            "CHERRY_R1_1U",
-            "CHERRY_R1_2U",
-            "CHERRY_R1_2UH",
-            "CHERRY_R2_1U",
-            "CHERRY_R2_1p5U",
-            "CHERRY_R3_1U",
-            "CHERRY_R3_1p75U",
-            "CHERRY_R3_2p25U",
-            "CHERRY_R4_1U",
-            "CHERRY_R4_1p75U",
-            "CHERRY_R4_2p25U",
-            "CHERRY_R4_2p75U",
-            "CHERRY_R5_1U",
-            "CHERRY_R5_1p25U",
-            "CHERRY_R5_6p25U",
-            "DSA_R1_1U",
-            "DSA_R1_1p25U",
-            "DSA_R1_1p5U",
-            "DSA_R1_1p75U",
-            "DSA_R1_2p25U",
-            "DSA_R1_2p75U",
-            "DSA_R1_6p25U",
-            "OEM_R1_1U",
-            "OEM_R1_2U",
-            "OEM_R2_1p5U",
-            "OEM_R2_1U",
-            "OEM_R3_1p75U",
-            "OEM_R3_1U",
-            "OEM_R3_2p25U",
-            "OEM_R4_2p25U",
-            "OEM_R4_1U",
-            "OEM_R4_2p75U",
-            "OEM_R5_1p25U",
-            "OEM_R5_6p25U"
+          "anyOf": [
+            {
+              "$ref": "profiles.schema.json#/$defs/UGLY"
+            },
+            {
+              "$ref": "profiles.schema.json#/$defs/CHERRY"
+            },
+            {
+              "$ref": "profiles.schema.json#/$defs/DSA"
+            },
+            {
+              "$ref": "profiles.schema.json#/$defs/OEM"
+            },
+            {
+              "$ref": "profiles.schema.json#/$defs/LAPTOP"
+            },
+            {
+              "$ref": "profiles.schema.json#/$defs/CHICLET"
+            }
           ]
         },
         "keyColor": {
@@ -164,9 +146,7 @@
         },
         "keyMaterial": {
           "type": "string",
-          "enum": [
-            "ABS"
-          ]
+          "enum": ["ABS"]
         },
         "legendColor": {
           "type": "string"
@@ -190,10 +170,7 @@
         },
         "keySwitch": {
           "type": "string",
-          "enum": [
-            "none",
-            "MX_Brown"
-          ]
+          "enum": ["none", "MX_Brown"]
         },
         "position": {
           "$ref": "#/$defs/transform"
@@ -269,9 +246,7 @@
           "$ref": "#/$defs/legendPositionOptions"
         }
       },
-      "required": [
-        "legendPosition"
-      ]
+      "required": ["legendPosition"]
     },
     "transform": {
       "type": "object",
@@ -286,11 +261,7 @@
           "type": "number"
         }
       },
-      "required": [
-        "x",
-        "y",
-        "z"
-      ]
+      "required": ["x", "y", "z"]
     },
     "legendPositionOptions": {
       "type": "string",
@@ -317,9 +288,7 @@
           "$ref": "legendSetGlyphs.schema.json#/$defs/notoSans"
         }
       },
-      "required": [
-        "glyph"
-      ]
+      "required": ["glyph"]
     },
     "NotoSerifLegend": {
       "$ref": "#/$defs/baseLegend",
@@ -331,9 +300,7 @@
           "$ref": "legendSetGlyphs.schema.json#/$defs/notoSerif"
         }
       },
-      "required": [
-        "glyph"
-      ]
+      "required": ["glyph"]
     },
     "NotoAlchemyLegend": {
       "$ref": "#/$defs/baseLegend",
@@ -345,9 +312,7 @@
           "$ref": "legendSetGlyphs.schema.json#/$defs/notoAlchemy"
         }
       },
-      "required": [
-        "glyph"
-      ]
+      "required": ["glyph"]
     }
   }
 }
