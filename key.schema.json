@@ -154,15 +154,77 @@
         "legends": {
           "type": "array",
           "items": {
-            "oneOf": [
+            "type": "object",
+            "properties": {
+              "legendPosition": {
+                "$ref": "#/$defs/legendPositionOptions"
+              },
+              "legendSet": {
+                "type": "string",
+                "enum": ["NotoSans", "NotoSerif", "NotoAlchemy", "Icons"]
+              }
+            },
+            "required": ["legendSet"],
+            "allOf": [
               {
-                "$ref": "#/$defs/NotoSansLegend"
+                "if": {
+                  "properties": {
+                    "legendSet": { "const": "NotoSans" }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "glyph": {
+                      "$ref": "legendSetGlyphs.schema.json#/$defs/notoSans"
+                    }
+                  },
+                  "required": ["glyph"]
+                }
               },
               {
-                "$ref": "#/$defs/NotoSerifLegend"
+                "if": {
+                  "properties": {
+                    "legendSet": { "const": "NotoSerif" }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "glyph": {
+                      "$ref": "legendSetGlyphs.schema.json#/$defs/notoSerif"
+                    }
+                  },
+                  "required": ["glyph"]
+                }
               },
               {
-                "$ref": "#/$defs/NotoAlchemyLegend"
+                "if": {
+                  "properties": {
+                    "legendSet": { "const": "NotoAlchemy" }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "glyph": {
+                      "$ref": "legendSetGlyphs.schema.json#/$defs/notoAlchemy"
+                    }
+                  },
+                  "required": ["glyph"]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "legendSet": { "const": "Icons" }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "glyph": {
+                      "$ref": "legendSetGlyphs.schema.json#/$defs/icons"
+                    }
+                  },
+                  "required": ["glyph"]
+                }
               }
             ],
             "additionalItems": false
@@ -277,42 +339,6 @@
         "Full",
         "FullHeight"
       ]
-    },
-    "NotoSansLegend": {
-      "$ref": "#/$defs/baseLegend",
-      "properties": {
-        "legendSet": {
-          "const": "NotoSans"
-        },
-        "glyph": {
-          "$ref": "legendSetGlyphs.schema.json#/$defs/notoSans"
-        }
-      },
-      "required": ["glyph"]
-    },
-    "NotoSerifLegend": {
-      "$ref": "#/$defs/baseLegend",
-      "properties": {
-        "legendSet": {
-          "const": "NotoSerif"
-        },
-        "glyph": {
-          "$ref": "legendSetGlyphs.schema.json#/$defs/notoSerif"
-        }
-      },
-      "required": ["glyph"]
-    },
-    "NotoAlchemyLegend": {
-      "$ref": "#/$defs/baseLegend",
-      "properties": {
-        "legendSet": {
-          "const": "NotoAlchemy"
-        },
-        "glyph": {
-          "$ref": "legendSetGlyphs.schema.json#/$defs/notoAlchemy"
-        }
-      },
-      "required": ["glyph"]
-    }
+    } 
   }
 }
