@@ -146,7 +146,7 @@
         },
         "keyMaterial": {
           "type": "string",
-          "enum": ["ABS"]
+          "enum": ["ABS", "PBT", "Marble", "Metal","Wood"]
         },
         "legendColor": {
           "type": "string"
@@ -154,91 +154,28 @@
         "legends": {
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "legendPosition": {
-                "$ref": "#/$defs/legendPositionOptions"
-              },
-              "legendSet": {
-                "type": "string",
-                "enum": ["NotoSans", "NotoSerif", "NotoAlchemy", "Icons"]
-              }
-            },
-            "required": ["legendSet"],
-            "allOf": [
-              {
-                "if": {
-                  "properties": {
-                    "legendSet": { "const": "NotoSans" }
-                  }
-                },
-                "then": {
-                  "properties": {
-                    "glyph": {
-                      "$ref": "legendSetGlyphs.schema.json#/$defs/notoSans"
-                    }
-                  },
-                  "required": ["glyph"]
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "legendSet": { "const": "NotoSerif" }
-                  }
-                },
-                "then": {
-                  "properties": {
-                    "glyph": {
-                      "$ref": "legendSetGlyphs.schema.json#/$defs/notoSerif"
-                    }
-                  },
-                  "required": ["glyph"]
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "legendSet": { "const": "NotoAlchemy" }
-                  }
-                },
-                "then": {
-                  "properties": {
-                    "glyph": {
-                      "$ref": "legendSetGlyphs.schema.json#/$defs/notoAlchemy"
-                    }
-                  },
-                  "required": ["glyph"]
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "legendSet": { "const": "Icons" }
-                  }
-                },
-                "then": {
-                  "properties": {
-                    "glyph": {
-                      "$ref": "legendSetGlyphs.schema.json#/$defs/icons"
-                    }
-                  },
-                  "required": ["glyph"]
-                }
-              }
-            ],
-            "additionalItems": false
+            "$ref": "#/$defs/keyLegend"
           }
         },
-        "keySwitch": {
-          "type": "string",
-          "enum": ["none", "MX_Brown"]
-        },
         "position": {
-          "$ref": "#/$defs/transform"
+          "type": "object",
+          "properties": {
+            "grid": {
+              "type": "string"
+            },
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "z": {
+              "type": "number"
+            }
+          }
         },
         "rotation": {
-          "$ref": "#/$defs/transform"
+          "$ref": "#/$defs/vec3"
         },
         "groups": {
           "type": "array",
@@ -296,21 +233,59 @@
         "keyMaterial",
         "keyColor",
         "legendColor",
-        "legends",
-        "position",
-        "rotation"
-      ]
+        "legends"
+      ],
+      "additionalProperties": false
     },
-    "baseLegend": {
+    "keyLegend": {
       "type": "object",
       "properties": {
         "legendPosition": {
           "$ref": "#/$defs/legendPositionOptions"
+        },
+        "legendSet": {
+          "type": "string"
+        },
+        "glyph": {
+          "type": "string"
         }
       },
-      "required": ["legendPosition"]
+      "required": ["legendPosition", "legendSet", "glyph"],
+      "oneOf": [
+        {
+          "properties": {
+            "legendSet": {
+              "const": "NotoSans"
+            },
+            "glyph": {
+              "$ref": "legendSetGlyphs.schema.json#/$defs/notoSans"
+            }
+          }
+        },
+        {
+          "properties": {
+            "legendSet": {
+              "const": "NotoSerif"
+            },
+            "glyph": {
+              "$ref": "legendSetGlyphs.schema.json#/$defs/notoSerif"
+            }
+          }
+        },
+        {
+          "properties": {
+            "legendSet": {
+              "const": "NotoAlchemy"
+            },
+            "glyph": {
+              "$ref": "legendSetGlyphs.schema.json#/$defs/notoAlchemy"
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
     },
-    "transform": {
+    "vec3": {
       "type": "object",
       "properties": {
         "x": {
@@ -323,7 +298,8 @@
           "type": "number"
         }
       },
-      "required": ["x", "y", "z"]
+      "required": ["x", "y", "z"],
+      "additionalProperties": false
     },
     "legendPositionOptions": {
       "type": "string",
@@ -339,6 +315,6 @@
         "Full",
         "FullHeight"
       ]
-    } 
+    }
   }
 }
