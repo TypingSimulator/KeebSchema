@@ -146,7 +146,7 @@
         },
         "keyMaterial": {
           "type": "string",
-          "enum": ["ABS", "PBT", "Marble", "Metal","Wood"]
+          "enum": ["ABS", "PBT", "Marble", "Metal", "Wood"]
         },
         "legendColor": {
           "type": "string"
@@ -279,6 +279,16 @@
             },
             "glyph": {
               "$ref": "legendSetGlyphs.schema.json#/$defs/notoAlchemy"
+            }
+          }
+        },
+        {
+          "properties": {
+            "legendSet": {
+              "const": "Icons"
+            },
+            "glyph": {
+              "$ref": "legendSetGlyphs.schema.json#/$defs/icons"
             }
           }
         }
